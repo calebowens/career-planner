@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+  workflow_dispatch: # Allows manually triggering (only mantainers can do this)
+
+env:
+  COMPOSE_FILE: .docker/docker-compose.yml
+  RAILS_ENV: test
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Build
+        run: touch .env && docker compose run --rm web bundle install
+      - name: Create Database
+        run: docker compose run --rm web bash -c "RAILS_ENV=test bundle exec rails db:create"
+      - name: Test
+        run: docker compose run --rm web bundle exec rails test:all
+
+  standardrb:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Build
+        run: touch .env && docker compose run --rm web bundle install
+      - name: Standardrb
+        run: docker compose run --rm web bundle exec standardrb

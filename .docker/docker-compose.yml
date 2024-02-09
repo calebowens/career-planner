@@ -1,0 +1,32 @@
+version: '3.8'
+
+name: starterpack
+
+services:
+  mailhog:
+    image: docker.io/mailhog/mailhog
+    ports:
+      - 8025:8025
+  db:
+    image: postgres:16.1
+    volumes:
+      - ../production_data/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+  web:
+    build:
+      context: ..
+      dockerfile: '.docker/Dockerfile'
+    command: 'sh .docker/entrypoint.sh'
+    volumes: 
+      - ..:/app
+      - ../tmp/bundle:/usr/local/bundle
+    env_file:
+      - ../.env
+    depends_on:
+      - db
+      - mailhog
+    environment:
+      DATABASE_URL: postgresql://postgres:password@db
+    ports:
+      - 3000:3000
