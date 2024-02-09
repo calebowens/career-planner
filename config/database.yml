@@ -18,7 +18,7 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  database: rails_starterpack
+  database: career_planner
 
 # Development and production intentionaly use the same database name to make copying the production database volume over
 # into the development environment as easy as possible
@@ -33,4 +33,4 @@ production:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: rails_starterpack_test
+  database: career_planner_test

@@ -1,6 +1,6 @@
 version: '3.8'
 
-name: rails-starterpack-production
+name: career-planner-production
 
 services:
   db:
