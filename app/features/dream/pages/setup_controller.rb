@@ -21,8 +21,6 @@ class Dream::Pages::SetupController < ApplicationController
           p { "What position do you see yourself in in 10 to 15 years time?" }
 
           render Form
-
-          p { "This information will not be sold to any third parties" }
         end
       end
     end

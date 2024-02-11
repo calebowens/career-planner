@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   namespace :dashboard do
     scope module: :pages do
       get "home", to: "home#view"
+      post "complete_step", to: "home#complete_step"
+      post "add_action_point", to: "home#add_action_point"
+      post "toggle_action_point/:id", to: "home#toggle_action_point", as: :toggle_action_point
+      delete "delete_action_point/:id", to: "home#delete_action_point", as: :delete_action_point
     end
   end
 
@@ -35,6 +39,8 @@ Rails.application.routes.draw do
     scope module: :pages do
       get "/setup", to: "setup#view"
       put "/setup", to: "setup#submit"
+      get "/add_step", to: "add_step#view"
+      post "/add_step", to: "add_step#submit"
     end
   end
 end

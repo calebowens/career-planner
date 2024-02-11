@@ -20,8 +20,6 @@ class Profile::Pages::SetupController < ApplicationController
           h1 { "Tell us about you" }
 
           render Form
-
-          p { "This information will not be sold to any third parties" }
         end
       end
     end
