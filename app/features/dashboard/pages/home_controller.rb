@@ -44,7 +44,7 @@ class Dashboard::Pages::HomeController < ApplicationController
 
       ul do
         Current.user.dream.incomplete_action_points.each do |action_point|
-          li do
+          li(class: :hoverlist) do
             p { action_point.action }
             div(class: "flex") do
               button_to "Mark complete", dashboard_toggle_action_point_path(action_point.id)
@@ -54,13 +54,16 @@ class Dashboard::Pages::HomeController < ApplicationController
         end
 
         Current.user.dream.completed_action_points.each do |action_point|
-          li do
+          li(class: :hoverlist) do
             p do
               plain "✅"
               s { action_point.action }
             end
 
-            button_to "Mark incomplete", dashboard_toggle_action_point_path(action_point.id)
+            div(class: "flex") do
+              button_to "Mark incomplete", dashboard_toggle_action_point_path(action_point.id)
+              button_to "Delete", dashboard_delete_action_point_path(action_point.id), method: :delete, class: "danger"
+            end
           end
         end
       end
