@@ -33,9 +33,15 @@ class Authentication::Pages::RegisterController < ApplicationController
 
   class View < ApplicationView
     def template
-      h1 { "Create a user" }
+      render Components::Header.new
 
-      render Form
+      main do
+        section do
+          h1 { "Create a user" }
+
+          render Form
+        end
+      end
     end
   end
 
@@ -71,7 +77,7 @@ class Authentication::Pages::RegisterController < ApplicationController
     ViewContext.form_object = FormObject.new(user_params)
 
     if ViewContext.form_object.valid?
-      user = User.create!(email: ViewContext.form_object.password, password: ViewContext.form_object.password)
+      user = User.create!(email: ViewContext.form_object.email, password: ViewContext.form_object.password)
 
       user.add_to_session session
 

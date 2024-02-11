@@ -29,9 +29,14 @@ class Authentication::Pages::LoginController < ApplicationController
 
   class View < ApplicationView
     def template
-      h1 { "Login" }
+      render Components::Header
+      main do
+        section do
+          h1 { "Login" }
 
-      render Form
+          render Form
+        end
+      end
     end
   end
 

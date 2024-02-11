@@ -33,4 +33,23 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+  def ensure_profile_completed!
+    authenticate!
+
+    unless Current.user.profile.completed?
+      # flash[:warning] = "You need to set up your profile before continuing to your dashboard"
+      redirect_to profile_setup_path
+    end
+  end
+
+  def ensure_dream_added!
+    authenticate!
+    ensure_profile_completed!
+
+    unless Current.user.dream.added?
+      # flash[:warning] = "You need to set up your dream before continuing to your dashboard"
+      redirect_to dream_setup_path
+    end
+  end
 end

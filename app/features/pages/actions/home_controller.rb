@@ -3,9 +3,13 @@ class Pages::Actions::HomeController < ApplicationController
     def template
       render Components::Header.new
 
-      h1 { "Welcome home!" }
+      main do
+        section do
+          h1 { "Welcome home!" }
 
-      button(id: "tippy") { "tippy button" }
+          button(id: "tippy") { "tippy button" }
+        end
+      end
     end
   end
 

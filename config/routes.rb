@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   root "pages/actions/home#handle"
 
   namespace :dashboard do
-    scope module: :actions do
-      get "home", to: "home#handle"
+    scope module: :pages do
+      get "home", to: "home#view"
     end
   end
 
@@ -21,6 +21,20 @@ Rails.application.routes.draw do
       get "/register", to: "register#view"
       post "/register", to: "register#submit"
       delete "/logout", to: "logout#handle"
+    end
+  end
+
+  namespace :profile do
+    scope module: :pages do
+      get "/setup", to: "setup#view"
+      put "/setup", to: "setup#submit"
+    end
+  end
+
+  namespace :dream do
+    scope module: :pages do
+      get "/setup", to: "setup#view"
+      put "/setup", to: "setup#submit"
     end
   end
 end

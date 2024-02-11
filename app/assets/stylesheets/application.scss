@@ -4,6 +4,8 @@
 @use "structure";
 @use "table";
 
+@use "components/header";
+
 :root {
   --color-primary: #3C4F57;
   --color-primary-hover: #57707A;
