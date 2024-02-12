@@ -28,7 +28,7 @@ class Dream::Pages::SetupController < ApplicationController
 
   class Form < ApplicationView
     def template
-      form_with model: ViewContext.form_object, url: "#", method: :put, id: "dream" do |f|
+      form_with model: ViewContext.form_object, url: dream_setup_path, method: :put, id: "dream" do |f|
         f.label :role, "What is your dream role?"
         f.text_field :role, placeholder: "Chief Technical Officer"
         render ViewContext.form_object.errors_for(:role)

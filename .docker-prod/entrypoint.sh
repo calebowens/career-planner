@@ -1,4 +1,13 @@
+rm -f /app/tmp/pids/server.pid
+
+cd /app
+
 rails db:create
 rails db:migrate
 
-rails server -p 3000 -b 0.0.0.0
+if ! gem list foreman -i --silent; then
+  echo "Installing foreman..."
+  gem install foreman
+fi
+
+foreman start -f Procfile
