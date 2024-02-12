@@ -48,7 +48,7 @@ class Dream::Pages::AddStepController < ApplicationController
 
   class Form < ApplicationView
     def template
-      form_with model: ViewContext.form_object, url: "#", method: :post, id: "step" do |f|
+      form_with model: ViewContext.form_object, url: dream_add_step_path, method: :post, id: "step" do |f|
         f.label :goal, "Enter your goal"
         f.text_field :goal, placeholder: "Become a lead developer"
         render ViewContext.form_object.errors_for(:goal)
