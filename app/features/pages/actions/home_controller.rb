@@ -5,9 +5,7 @@ class Pages::Actions::HomeController < ApplicationController
 
       main do
         section do
-          h1 { "Welcome home!" }
-
-          button(id: "tippy") { "tippy button" }
+          h1 { "Welcome to career composer!" }
         end
       end
     end

@@ -15,6 +15,8 @@ class Dashboard::Pages::ActionPointSuggestionsController < ApplicationController
             li { p { suggestion } }
           end
         end
+
+        link_to "Not happy with these suggestions? Load some more!", dashboard_action_point_suggestions_path(prompt: @prompt)
       end
     end
   end

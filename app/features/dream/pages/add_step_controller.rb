@@ -33,6 +33,14 @@ class Dream::Pages::AddStepController < ApplicationController
           p(class: "mt-2") { "This should be a long-term and objective goal like taking on a new role or responsiblity" }
 
           render Form
+
+          div(class: "card") do
+            turbo_frame_tag :dream_step_suggestions, src: dream_step_suggestions_path do
+              p(class: "mt-0") { "Are you stuck for ideas? Here are some suggestions:" }
+
+              p(class: "mb-0") { "Loading..." }
+            end
+          end
         end
       end
     end

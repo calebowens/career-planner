@@ -42,6 +42,7 @@ Rails.application.routes.draw do
       put "/setup", to: "setup#submit"
       get "/add_step", to: "add_step#view"
       post "/add_step", to: "add_step#submit"
+      get "/step_suggestions", to: "step_suggestions#view"
     end
   end
 end

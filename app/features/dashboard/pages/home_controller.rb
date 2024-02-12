@@ -11,6 +11,13 @@ class Dashboard::Pages::HomeController < ApplicationController
         section do
           h1 { "Welcome #{Current.user.profile.name}!" }
 
+          if Current.user.dream.should_create_new_step?
+            h2 { "Do you want to make a new step?" }
+
+            p { "It looks like your next step's target is set far in the future, would you like to create an intermediary step?" }
+            link_to "Add a new step", dream_add_step_path, class: "button primary"
+          end
+
           h2 { "Your dream is to become a #{Current.user.dream.role}" }
 
           p { "Your current step is: #{Current.user.dream.current_step.goal}" }
