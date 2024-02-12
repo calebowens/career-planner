@@ -12,5 +12,4 @@ RUN bundle config set without test development &&\
   bundle install
 RUN env $(cat .env | xargs) rails assets:precompile
 
-EXPOSE 3000
-
+EXPOSE 3069
