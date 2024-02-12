@@ -35,7 +35,7 @@ module Ai
       if user.dream.steps.empty?
         "My current role is #{user.profile.current_job_title} with #{user.profile.years_of_professional_experience} years of experience. I'm currently #{user.profile.employment_type} in the #{user.profile.current_industry} at a company with #{user.profile.current_company_size} people. My dream is to become a #{user.dream.role}. I would like some suggestions for roles and responsiblities that would be a good halfway point."
       else
-        "My current role is #{user.profile.current_job_title} with #{user.profile.years_of_professional_experience} years of experience. I'm currently #{user.profile.employment_type} in the #{user.profile.current_industry} at a company with #{user.profile.current_company_size} people. My dream is to become a #{user.dream.role}. I would like some suggestions for to help me achieve my current goal of #{user.dream.current_step.goal}. Make one of the four suggestions about a new job title or responsibility I could take on"
+        "My current role is #{user.profile.current_job_title} with #{user.profile.years_of_professional_experience} years of experience. I'm currently #{user.profile.employment_type} in the #{user.profile.current_industry} at a company with #{user.profile.current_company_size} people. I would like some suggestions for to help me achieve my current goal of #{user.dream.current_step.goal}. Make one of the four suggestions about a new job title or responsibility I could take on"
       end
 
     data = {
