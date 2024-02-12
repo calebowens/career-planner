@@ -14,7 +14,7 @@ module Ai
         },
         {
           role: "user",
-          content: "Could you please suggest three action points. I'm currently working towards my goal of #{user.dream.current_step.goal}."
+          content: "Could you please suggest three small short term action points to help me work towards my goal of #{user.dream.current_step.goal}. My eventual goal is to be a #{user.dream.role}"
         }
       ]
     }.to_json

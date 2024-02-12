@@ -84,6 +84,18 @@ class Dashboard::Pages::HomeController < ApplicationController
 
         f.submit "Create action point"
       end
+
+      div("x-data": JSON.generate(show: false)) do
+        div(class: "card", "x-show": "show") do
+          turbo_frame_tag :action_point_suggestions, src: dashboard_action_point_suggestions_path(prompt: "Here are some action point suggestions:"), loading: :lazy do
+            p(class: "mt-0") { "Here are some action point suggestions:" }
+
+            p(class: "mb-0") { "Loading..." }
+          end
+        end
+
+        a("@click": "show = true", "x-show": "!show") { "If you're stuck, click generate some ideas!" }
+      end
     end
   end
 
