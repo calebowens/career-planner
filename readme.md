@@ -2,6 +2,8 @@
 
 Video submission https://www.youtube.com/watch?v=60silLPLXhA
 
+Hosted at https://career-composer.com
+
 ## Development environment setup
 
 ### Pre-Commit Hooks
