@@ -1,0 +1,19 @@
+header {
+  display: flex;
+
+  padding: 0.5rem 1.5rem;
+
+  background-color: var(--color-dark-beige);
+
+  > a {
+    text-decoration: none;
+  }
+
+  nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+  }
+}

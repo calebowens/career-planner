@@ -30,4 +30,3 @@ services:
       DATABASE_URL: postgresql://postgres:password@db
     ports:
       - 3000:3000
-    platform: linux/x86_64

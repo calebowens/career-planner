@@ -4,6 +4,8 @@
 @use "structure";
 @use "table";
 
+@use "components/header";
+
 :root {
   --color-primary: #3C4F57;
   --color-primary-hover: #57707A;
@@ -103,4 +105,26 @@ dialog {
     width: fit-content;
     max-width: 100%;
   }
+}
+
+.hoverlist {
+  div {
+    display: none;
+    * {
+      margin-bottom: 0;
+    }
+  }
+
+  &:hover {
+    background-color: var(--color-dark-beige);
+
+    div {
+      display: flex;
+    }
+    padding: 0.5rem;
+  }
+}
+
+.hidden {
+  display: none
 }

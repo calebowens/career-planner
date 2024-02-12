@@ -44,4 +44,12 @@ class User
   def remove_from_session(session)
     session.delete(:user_id)
   end
+
+  def profile
+    @profile ||= User::Profile.new(db_user: @db_user)
+  end
+
+  def dream
+    @dream ||= User::Dream.new(db_user: @db_user, dream: @db_user.dream)
+  end
 end

@@ -65,7 +65,10 @@ button, .button, input[type=submit] {
   }
 }
 
-textarea, input[type=text], input[type=password], select {
+// TODO: Copy into starter pack the new list of inputs
+// REFACTOR: Is it worth doing something clever with SCSS loops, or would I bebetter not given that I'm wanting to move
+//   to pure css eventually?
+textarea, input[type=text], input[type=password], input[type=date], input[type=number], select {
   border: 2px solid var(--color-secondary);
   background-color: rgba(255, 255, 255, 0.30);
   padding: 0.5rem 1rem;
@@ -84,6 +87,6 @@ textarea, input[type=text], input[type=password], select {
   }
 }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=date], input[type=number] {
   width: 350px;
 }

@@ -29,5 +29,7 @@ module RailsStarterpack
     config.cache_store = :solid_cache_store
     config.session_store :cache_store
     config.active_job.queue_adapter = :good_job
+
+    config.open_ai_token = ENV["OPEN_AI_TOKEN"]
   end
 end
