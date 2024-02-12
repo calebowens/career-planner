@@ -43,7 +43,7 @@ module Ai
       messages: [
         {
           role: "system",
-          content: "You are an expert mentor. You provide advice only in single line bullet points"
+          content: "You are a career advisor. You provide advice only in single line bullet points"
         },
         {
           role: "user",
