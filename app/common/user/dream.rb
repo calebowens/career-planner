@@ -50,6 +50,14 @@ class User
         @step["id"] = value
       end
 
+      def action_points
+        @step["action_points"] ||= []
+      end
+
+      def action_points=(value)
+        @step["action_points"] = value
+      end
+
       def json
         @step
       end
@@ -161,9 +169,9 @@ class User
     end
 
     def action_points
-      @dream["action_points"] ||= []
+      current_step.action_points ||= []
 
-      @dream["action_points"].map { ActionPoint.new(action_point: _1) }
+      current_step.action_points.map { ActionPoint.new(action_point: _1) }
     end
 
     def completed_action_points
@@ -178,12 +186,12 @@ class User
       action_point = ActionPoint.new(action_point: {})
       action_point.id = SecureRandom.uuid
       action_point.action = action
-      @dream["action_points"] ||= []
-      @dream["action_points"] << action_point.json
+      current_step.action_points ||= []
+      current_step.action_points << action_point.json
     end
 
     def delete_action_point(id)
-      @dream["action_points"] = action_points.reject { _1.id == id }.map(&:json)
+      current_step.action_points = action_points.reject { _1.id == id }.map(&:json)
     end
 
     def attributes

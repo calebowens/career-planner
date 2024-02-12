@@ -42,6 +42,16 @@ class Dashboard::Pages::HomeController < ApplicationController
 
       p { "Action points are short term goals that help guide you towards completing your current step" }
 
+      if Current.user.dream.action_points.empty?
+        div(class: "card") do
+          turbo_frame_tag :action_point_suggestions, src: dashboard_action_point_suggestions_path do
+            p(class: "mt-0") { "You've not got any action points set up at the minute, if you need some inspiriation, here are some suggestions:" }
+
+            p(class: "mb-0") { "Loading..." }
+          end
+        end
+      end
+
       ul do
         Current.user.dream.incomplete_action_points.each do |action_point|
           li(class: :hoverlist) do

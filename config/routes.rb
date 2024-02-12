@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   namespace :dashboard do
     scope module: :pages do
       get "home", to: "home#view"
+      get "action_point_suggestions", to: "action_point_suggestions#view"
       post "complete_step", to: "home#complete_step"
       post "add_action_point", to: "home#add_action_point"
       post "toggle_action_point/:id", to: "home#toggle_action_point", as: :toggle_action_point
