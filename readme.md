@@ -4,6 +4,11 @@ Video submission https://www.youtube.com/watch?v=60silLPLXhA
 
 Hosted at https://career-composer.com
 
+# Potential future development as a product
+I'm realising now that I forgot to include this section in my video.
+
+My main idea for monetization and future development was to keep the product free for regular users, and target a paid version to private mentors and companies for use with mentees. This could either be branded as Career Composer or Whitelabeld depending on price teiring.
+
 ## Development environment setup
 
 ### Pre-Commit Hooks
